@@ -683,7 +683,7 @@ nav.scrolled {
 .collection-header .sec-tag {
   font-family: 'Syncopate', sans-serif;
   font-size: 15px; letter-spacing: 0.45em;
-  text-transform: uppercase; color: var(--gold);
+  text-transform: uppercase; color:#9A7B1A;
   display: block; margin-bottom: 20px;
 }
 .collection-header .sec-title {
@@ -871,43 +871,68 @@ nav.scrolled {
  
 /* ═══════════ CTA / LEGACY ═══════════ */
 .legacy {
-  padding: 200px 72px;
-  text-align: center;
+  padding: 140px 72px;
+  text-align: left;
   position: relative; overflow: hidden;
   background: var(--ivory);
   color: var(--ink);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
 }
 .legacy-ambient {
   position: absolute; inset: 0; pointer-events: none;
 }
 .legacy-glow {
-  position: absolute; top: 50%; left: 50%;
-  transform: translate(-50%,-50%);
-  width: 700px; height: 700px;
-  background: radial-gradient(circle, rgba(184,148,31,0.05) 0%, transparent 55%);
+  position: absolute; top: 50%; right: -100px;
+  transform: translateY(-50%);
+  width: 800px; height: 800px;
+  background: radial-gradient(ellipse, rgba(184,148,31,0.04) 0%, transparent 55%);
 }
-.legacy-ring {
-  position: absolute; top: 50%; left: 50%;
-  transform: translate(-50%,-50%);
-  width: 450px; height: 450px;
-  border-radius: 50%;
-  border: 1px solid rgba(184,148,31,0.05);
-  animation: orbitSpin 40s linear infinite;
+.legacy-content {
+  position: relative; z-index: 2;
+}
+.legacy-eyebrow {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 15px; letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: #9A7B1A;
+  display: flex; align-items: center; gap: 14px;
+  margin-bottom: 32px;
 }
 .legacy-headline {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(44px, 6vw, 84px);
-  font-weight: 300; line-height: 1.04;
+  font-size: clamp(40px, 5vw, 68px);
+  font-weight: 300; line-height: 1.06;
   letter-spacing: -0.02em;
-  max-width: 800px; margin: 0 auto 22px;
+  max-width: 520px; margin: 0 0 24px;
   position: relative; z-index: 2;
 }
 .legacy-headline em { font-style: italic; color: var(--gold); }
 .legacy-sub {
   font-size: 14px; font-weight: 300;
   color: rgba(8,7,4,0.4);
-  letter-spacing: 0.06em; margin-bottom: 56px;
+  letter-spacing: 0.04em; margin-bottom: 20px;
+  max-width: 400px; line-height: 1.8;
   position: relative; z-index: 2;
+}
+.legacy-detail {
+  display: flex; gap: 40px; margin-bottom: 48px;
+}
+.legacy-detail-item {
+  display: flex; flex-direction: column; gap: 6px;
+}
+.legacy-detail-label {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 7px; letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(8,7,4,0.25);
+}
+.legacy-detail-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px; font-weight: 300; font-style: italic;
+  color: rgba(8,7,4,0.5); letter-spacing: 0.04em;
 }
 .btn-legacy {
   font-family: 'Syncopate', sans-serif;
@@ -934,6 +959,207 @@ nav.scrolled {
 .btn-legacy:hover::before { transform: translateY(0); }
 .btn-legacy span { position: relative; z-index: 1; }
  
+/* Photoshoot showcase */
+.legacy-showcase {
+  position: relative; z-index: 2;
+}
+.showcase-frame {
+  position: relative; overflow: hidden;
+  border-radius: 2px;
+}
+.showcase-frame::before {
+  display: none;
+}
+.showcase-frame::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(8,7,4,0) 60%, rgba(8,7,4,0.4) 100%);
+  z-index: 2; pointer-events: none;
+}
+.showcase-img {
+  width: 100%; height: auto; display: block;
+  filter: contrast(1.05) brightness(0.95);
+  opacity: 0; transform: scale(1.06);
+  transition: opacity 1.6s cubic-bezier(0.22,1,0.36,1), transform 2.2s cubic-bezier(0.22,1,0.36,1);
+}
+.legacy-showcase.vis .showcase-img {
+  opacity: 1; transform: scale(1);
+}
+.showcase-gold-corner-tr {
+  position: absolute; top: -16px; right: -16px;
+  width: 60px; height: 60px;
+  border-top: 1px solid rgba(184,148,31,0.3);
+  border-right: 1px solid rgba(184,148,31,0.3);
+  z-index: 4; pointer-events: none;
+  opacity: 0; transform: translate(8px, -8px);
+  transition: opacity 1s 0.5s ease, transform 1s 0.5s cubic-bezier(0.22,1,0.36,1);
+}
+.legacy-showcase.vis .showcase-gold-corner-tr {
+  opacity: 1; transform: translate(0, 0);
+}
+.showcase-gold-corner-bl {
+  position: absolute; bottom: -16px; left: -16px;
+  width: 60px; height: 60px;
+  border-bottom: 1px solid rgba(184,148,31,0.3);
+  border-left: 1px solid rgba(184,148,31,0.3);
+  z-index: 4; pointer-events: none;
+  opacity: 0; transform: translate(-8px, 8px);
+  transition: opacity 1s 0.6s ease, transform 1s 0.6s cubic-bezier(0.22,1,0.36,1);
+}
+.legacy-showcase.vis .showcase-gold-corner-bl {
+  opacity: 1; transform: translate(0, 0);
+}
+.showcase-caption {
+  position: absolute; bottom: 20px; left: 24px; z-index: 5;
+  font-family: 'Syncopate', sans-serif;
+  font-size: 7px; letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(250,248,243,0.5);
+}
+.showcase-shimmer {
+  position: absolute; top: -100%; left: -60%;
+  width: 40%; height: 300%;
+  background: linear-gradient(105deg, transparent, rgba(255,255,255,0.03), transparent);
+  transform: rotate(20deg);
+  z-index: 3; pointer-events: none;
+  animation: showcaseShimmer 6s 2s ease-in-out infinite;
+}
+@keyframes showcaseShimmer {
+  0%, 100% { left: -60%; }
+  50% { left: 160%; }
+}
+ 
+/* ═══════════ AMBASSADORS / TESTIMONIAL ═══════════ */
+.ambassadors {
+  padding: 140px 72px 160px;
+  background: var(--ivory);
+  color: var(--ink);
+  position: relative; overflow: hidden;
+}
+.ambassadors-header {
+  text-align: center;
+  margin-bottom: 72px;
+}
+.ambassadors-eyebrow {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 14px; letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: #7A6210;
+  margin-bottom: 24px;
+}
+.ambassadors-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 4.5vw, 60px);
+  font-weight: 300; line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.ambassadors-sub {
+  font-size: 14px; font-weight: 300;
+  color: rgba(8,7,4,0.4);
+  margin-top: 16px; letter-spacing: 0.03em;
+  max-width: 500px; margin-left: auto; margin-right: auto;
+  line-height: 1.8;
+}
+.ambassador-carousel {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 0 32px;
+  scrollbar-width: none;
+  cursor: grab;
+}
+.ambassador-carousel::-webkit-scrollbar { display: none; }
+.ambassador-carousel:active { cursor: grabbing; }
+.ambassador-card {
+  flex: 0 0 320px;
+  scroll-snap-align: start;
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+  background: var(--ink);
+  transition: transform 0.6s cubic-bezier(0.22,1,0.36,1);
+}
+.ambassador-card:hover { transform: translateY(-6px); }
+.ambassador-img-wrap {
+  position: relative;
+  width: 100%; height: 380px;
+  overflow: hidden;
+}
+.ambassador-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.22,1,0.36,1), filter 0.8s;
+  filter: brightness(0.85) contrast(1.05);
+}
+.ambassador-card:hover .ambassador-img {
+  transform: scale(1.05);
+  filter: brightness(0.95) contrast(1.05);
+}
+.ambassador-img-wrap::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(8,7,4,0.85) 100%);
+  pointer-events: none;
+}
+.ambassador-info {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 24px 28px;
+  z-index: 2;
+}
+.ambassador-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px; font-weight: 400;
+  color: var(--ivory);
+  letter-spacing: 0.02em;
+}
+.ambassador-title {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 7px; letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-top: 6px;
+  opacity: 0.8;
+}
+.ambassador-card-bottom {
+  padding: 20px 28px 28px;
+  background: var(--ink);
+}
+.ambassador-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px; font-weight: 300; font-style: italic;
+  color: rgba(250,248,243,0.45);
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+}
+.ambassador-quote::before {
+  content: '"';
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px; color: var(--gold);
+  opacity: 0.4; line-height: 0;
+  vertical-align: -6px;
+  margin-right: 4px;
+}
+.carousel-nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 40px;
+}
+.carousel-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(8,7,4,0.12);
+  border: none; cursor: none; padding: 0;
+  transition: background 0.4s, transform 0.4s;
+}
+.carousel-dot.active {
+  background: var(--gold);
+  transform: scale(1.3);
+}
+
 /* ═══════════ FOOTER ═══════════ */
 footer {
   background: var(--ink);
@@ -1037,7 +1263,7 @@ footer {
   .ingredients { padding: 80px 40px; }
   .ingredients-inner { grid-template-columns: 1fr; gap: 40px; }
   .ingredients-left { position: relative; top: 0; }
-  .legacy { padding: 120px 40px; }
+  .legacy { padding: 120px 40px; grid-template-columns: 1fr; }
   nav { padding: 0 32px; }
   .nav-links { gap: 24px; }
   .scroll-hint { display: none; }
@@ -1053,7 +1279,7 @@ footer {
   .nav-wordmark { font-size: 16px; }
   .collection { padding: 80px 24px; }
   .ingredient-list { grid-template-columns: 1fr; }
-  .legacy { padding: 100px 24px; }
+  .legacy { padding: 100px 24px; grid-template-columns: 1fr; }
   footer { padding: 48px 24px 24px; }
 }
 </style>
@@ -1096,9 +1322,9 @@ footer {
   </div>
  
   <div class="hero-content">
-
+    <p class="hero-eyebrow">Crown Energy Division · Est. 2023</p>
     <h1 class="hero-headline">A Crown for Every<br><em>Achievement.</em></h1>
-    <p class="hero-sub">Energy that is defined by control and meticulously engineered. Each component is designed to provide power without chaos and performance without being excess. This energy is not for the masses, but for those who demand mastery in what they do.</p>
+    <p class="hero-sub">The world's first ultra-premium energy drink engineered with the obsessive precision that defines every Rolex calibre. Not for everyone. By design.</p>
     <div class="cta-group">
       <button class="btn-primary"><span>Reserve Your Crown</span></button>
     </div>
@@ -1125,13 +1351,13 @@ footer {
 <!-- MARQUEE -->
 <div class="marquee-section">
   <div class="marquee-track">
-    <span class="marquee-item">4 Active Compounds<span class="marquee-diamond"></span></span>
+    <span class="marquee-item">12 Active Compounds<span class="marquee-diamond"></span></span>
     <span class="marquee-item">4h Sustained Focus <span class="marquee-diamond"></span></span>
     <span class="marquee-item">A Crown for Every Achievement <span class="marquee-diamond"></span></span>
     <span class="marquee-item">III Editions Available <span class="marquee-diamond"></span></span>
     <span class="marquee-item">Verdant · Aurum · Noir <span class="marquee-diamond"></span></span>
     <span class="marquee-item">Og Artificial Sugar<span class="marquee-diamond"></span></span>
-    <span class="marquee-item">4 Active Compounds<span class="marquee-diamond"></span></span>
+    <span class="marquee-item">12 Active Compounds<span class="marquee-diamond"></span></span>
     <span class="marquee-item">4h Sustained Focus <span class="marquee-diamond"></span></span>
     <span class="marquee-item">A Crown for Every Achievement <span class="marquee-diamond"></span></span>
     <span class="marquee-item">III Editions Available <span class="marquee-diamond"></span></span>
@@ -1147,30 +1373,28 @@ footer {
   <div class="ingredients-inner">
     <div class="ingredients-left reveal">
       <span class="sec-tag">The Formula</span>
-      <h2 class="ingredients-title">Ingredients chosen <br> with <em>precision</em></h2>
+      <h2 class="ingredients-title">Compounds chosen<br>for <em>precision</em> <br>not sensation.</h2>
     </div>
     <div class="ingredient-list">
       <div class="ingredient-item reveal d1">
         <div class="ingredient-number">01</div>
         <div class="ingredient-name">Alpine Rhodiola</div>
-        <div class="ingredient-desc">Adaptogenic root cultivated above 3,000m. Sustains focus under sustained pressure.</div>
+        <div class="ingredient-desc">Adaptogenic root cultivated above 3,000m. Sustains cognitive clarity under sustained pressure.</div>
       </div>
       <div class="ingredient-item reveal d2">
         <div class="ingredient-number">02</div>
         <div class="ingredient-name">Electrolyte Matrix</div>
-        <div class="ingredient-desc">A precisely balanced blend of essential minerals designed to hydrate the body efficiently without anything unnecessary.
-</div>
+        <div class="ingredient-desc">Mineral calibration modeled after optimal cellular hydration curves. No excess.</div>
       </div>
       <div class="ingredient-item reveal d3">
         <div class="ingredient-number">03</div>
         <div class="ingredient-name">Siberian Ginseng</div>
-        <div class="ingredient-desc">A natural compound that helps to stay focused and perform longer without any crash or burnout.
-</div>
+        <div class="ingredient-desc">Endurance-class adaptogen. Extends the productive window without metabolic debt.</div>
       </div>
       <div class="ingredient-item reveal d4">
         <div class="ingredient-number">04</div>
         <div class="ingredient-name">B-Vitamin Cascade</div>
-        <div class="ingredient-desc">A slow-release, highly absorbable blend of B vitamins that supports steady energy without spikes or crashes.</div>
+        <div class="ingredient-desc">Staged-release methylated B-complex. Energy metabolism without the spike-crash profile.</div>
       </div>
     </div>
   </div>
@@ -1183,8 +1407,7 @@ footer {
   <div class="collection-header reveal">
     <span class="sec-tag">The Collection</span>
     <h2 class="sec-title">Three expressions.<br><em>One philosophy.</em></h2>
-    <p class="collection-sub">Every edition is calibrated for a distinct performance dimension.
-</p>
+    <p class="collection-sub">Each edition calibrated for a different dimension of performance.</p>
   </div>
  
   <div class="collection-grid">
@@ -1247,8 +1470,8 @@ footer {
   </div>
   <h2 class="philosophy-big-title reveal philosophy-big-title-wrap">Philosophy</h2>
   <div class="reveal">
-    <h2 class="philosophy-headline">Time is Meant To <br><em> Mastered.</em></h2>
-    <p class="philosophy-body">Every drop is a deliberate component. Every effect is perfectly timed. This is not fuel; it is the architecture of peak performance.For people who measure life by their accomplishments and adventures.</p>
+    <h2 class="philosophy-headline">Time was never<br>chased.<br><em>It was mastered.</em></h2>
+    <p class="philosophy-body">Energy is engineered like a movement — every compound calibrated, every molecule intentional. This isn't fuel. It's architecture for the human engine. Built for those who measure life in accomplishments, not hours.</p>
     <div class="philosophy-detail">
       <div class="philosophy-detail-item">
         <span class="detail-label">Origin</span>
@@ -1275,47 +1498,136 @@ footer {
  
 <!-- TIMELINE -->
 <section class="timeline-section">
-  <div class="timeline-title reveal">Timeline</div>
+  <div class="timeline-title reveal">The Crown Energy Chronicle</div>
   <div class="timeline">
     <div class="timeline-item reveal">
       <div class="timeline-glow"></div>
       <div class="timeline-year">2023 · Genesis Phase</div>
       <div class="timeline-phase">The Geneva Protocol</div>
-      <div class="timeline-desc">Deep within a Geneva research division, a classified initiative began.<br>A group of biochemists and precision engineers agreed to ask one question ,precision, could it be consumed?.
-</div>
+      <div class="timeline-desc">Deep within Rolex's Geneva research division, a classified initiative begins — codename "Crown Energy." A team of biochemists and horological engineers unite to answer one question: can precision be consumed?</div>
     </div>
     <div class="timeline-item reveal">
       <div class="timeline-glow"></div>
       <div class="timeline-year">2024 · Validation Phase</div>
       <div class="timeline-phase">Testing the Limit</div>
-      <div class="timeline-desc">351 formulations were tested.4 were selected.<br>Each compound was measured to the nanogram the same precision applied to movement springs. Clinical trials confirmed sustained four-hour focus.
-</div>
+      <div class="timeline-desc">847 formulations tested. 12 selected. Each compound measured to the nanogram — the same tolerance applied to Rolex movement springs. Clinical trials confirm sustained 4-hour cognitive elevation without crash.</div>
     </div>
     <div class="timeline-item reveal">
       <div class="timeline-glow"></div>
       <div class="timeline-year">2025 · Building Phase</div>
       <div class="timeline-phase">The Certification Year</div>
-      <div class="timeline-desc">Three editions were finalized: Verdant Chrona, Aurum Cycle, Noir Kinetic.
-Each Can received the Crown Energy seal—a certification defined by the highest standards of precision.
-</div>
+      <div class="timeline-desc">Three editions finalized: Verdant Chrona, Aurum Cycle, Noir Kinetic. Each can receives the Crown Energy seal — a quality certification process modeled after Rolex's Superlative Chronometer standard.</div>
     </div>
     <div class="timeline-item reveal">
       <div class="timeline-glow"></div>
       <div class="timeline-year">2026 · Launch Phase</div>
       <div class="timeline-phase">The Global Unveiling</div>
-      <div class="timeline-desc">Crown Energy made its global debut.Limited quantities of first-edition cans were made available. Only those who met the requirements got to reserve the crown.</div>
+      <div class="timeline-desc">Crown Energy launches at Design Paradox 2026. Limited first-edition cans released to select members. The circle opens — but only for those who qualify.</div>
     </div>
   </div>
 </section>
- 
+
+<!-- AMBASSADORS -->
+<section id="crowncircle" class="ambassadors">
+  <div class="ambassadors-header reveal">
+    <div class="ambassadors-eyebrow">Crown Circle</div>
+    <h2 class="ambassadors-title">For those who shape<br>the world</h2>
+    <p class="ambassadors-sub">Crown Energy is the drink of choice for exceptional men and women who, through their achievements, have left a lasting mark on the world.</p>
+  </div>
+
+  <div class="ambassador-carousel" id="ambassadorCarousel">
+    <div class="ambassador-card reveal">
+      <div class="ambassador-img-wrap">
+        <img class="ambassador-img" src="assets/roger.png" alt="Roger Federer">
+        <div class="ambassador-info">
+          <div class="ambassador-name">Roger Federer</div>
+          <div class="ambassador-title">Tennis · 20 Grand Slams</div>
+        </div>
+      </div>
+      <div class="ambassador-card-bottom">
+        <p class="ambassador-quote">Precision isn't just how I play. It's how I prepare, recover, and sustain. Crown Energy understands that.</p>
+      </div>
+    </div>
+
+    <div class="ambassador-card reveal d1">
+      <div class="ambassador-img-wrap">
+        <img class="ambassador-img" src="assets/lewis.png" alt="Lewis Hamilton">
+        <div class="ambassador-info">
+          <div class="ambassador-name">Lewis Hamilton</div>
+          <div class="ambassador-title">Formula 1 · 7x World Champion</div>
+        </div>
+      </div>
+      <div class="ambassador-card-bottom">
+        <p class="ambassador-quote">At 300km/h, there's no room for jitter. I need clarity that lasts — not a spike that fades.</p>
+      </div>
+    </div>
+
+    <div class="ambassador-card reveal d2">
+      <div class="ambassador-img-wrap">
+        <img class="ambassador-img" src="assets/leo.png" alt="Leonardo DiCaprio">
+        <div class="ambassador-info">
+          <div class="ambassador-name">Leonardo DiCaprio</div>
+          <div class="ambassador-title">Cinema · Academy Award Winner</div>
+        </div>
+      </div>
+      <div class="ambassador-card-bottom">
+        <p class="ambassador-quote">Every take demands presence. Crown Energy gives me the sustained focus without compromise.</p>
+      </div>
+    </div>
+
+    <div class="ambassador-card reveal d3">
+      <div class="ambassador-img-wrap">
+        <img class="ambassador-img" src="assets/tiger.png" alt="Tiger Woods">
+        <div class="ambassador-info">
+          <div class="ambassador-name">Tiger Woods</div>
+          <div class="ambassador-title">Golf · 15 Major Championships</div>
+        </div>
+      </div>
+      <div class="ambassador-card-bottom">
+        <p class="ambassador-quote">Champions don't chase energy. They master it. That's what this drink represents.</p>
+      </div>
+    </div>
+
+    <div class="ambassador-card reveal d4">
+      <div class="ambassador-img-wrap">
+        <img class="ambassador-img" src="assets/coco.png" alt="Coco Gauff">
+        <div class="ambassador-info">
+          <div class="ambassador-name">Coco Gauff</div>
+          <div class="ambassador-title">Tennis · Grand Slam Champion</div>
+        </div>
+      </div>
+      <div class="ambassador-card-bottom">
+        <p class="ambassador-quote">The next generation doesn't settle. Crown Energy is built for those who arrive early and stay late.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="carousel-nav">
+    <button class="carousel-dot active" data-index="0"></button>
+    <button class="carousel-dot" data-index="1"></button>
+  </div>
+</section>
+
 <!-- LEGACY CTA -->
 <section id="legacy" class="legacy">
   <div class="legacy-ambient">
     <div class="legacy-glow"></div>
   </div>
-  <h2 class="legacy-headline reveal">“You don’t need<br> more <em>energy.</em><br>You need <em>control.”</em></h2>
-  <p class="legacy-sub reveal d1">Made for those who value control, discipline, and luxury.<br>Reserved for those who have already arrived.</p>
-  <a href="#" class="btn-legacy reveal d2"><span>Reserve Your Crown</span></a>
+ 
+  <div class="legacy-content reveal">
+    <div class="legacy-eyebrow"> </div>
+    <h2 class="legacy-headline">You don't need<br>more energy.<br>You need <em>control.</em></h2>
+    <p class="legacy-sub">Three editions. One philosophy. Crafted for those who measure life in accomplishments, not hours. The circle opens — but only for those who qualify.</p>
+
+    <a href="#" class="btn-legacy"><span>Reserve Your Crown</span></a>
+  </div>
+ 
+  <div class="legacy-showcase reveal">
+    <div class="showcase-frame">
+      <div class="showcase-shimmer"></div>
+      <img class="showcase-img" src="assets/photoshoot.png" alt="Crown Energy Collection">
+    </div>
+  </div>
 </section>
  
 <div class="gold-divider"></div>
@@ -1326,7 +1638,7 @@ Each Can received the Crown Energy seal—a certification defined by the highest
     <div>
       <div class="footer-brand">
         <img class="footer-crown" src="assets/crown.png" alt="">
-        <span class="footer-brand-name">Crown Energy</span>
+        <span class="footer-brand-name">ROLEX</span>
       </div>
       <p class="footer-tagline">The world's first ultra-premium energy drink.<br>Crafted with the same obsessive precision<br>that defines every Rolex calibre.</p>
     </div>
@@ -1337,6 +1649,7 @@ Each Can received the Crown Energy seal—a certification defined by the highest
         <li><a href="#collection">Collection</a></li>
         <li><a href="#ingredients">Formula</a></li>
         <li><a href="#legacy">Reserve</a></li>
+        <li><a href="#crowncircle">Crown Circle</a></li>
       </ul>
     </div>
     <div>
@@ -1422,7 +1735,7 @@ const observer = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) e.target.classList.add('vis');
   });
-}, { threshold: 0.06, rootMargin: '0px 0px -60px 0px' });
+}, { threshold: 0.01, rootMargin: '0px 0px 0px 0px' });
  
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
  
@@ -1480,6 +1793,40 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     }
   });
 });
+// ═══════════ AMBASSADOR CAROUSEL ═══════════
+const carousel = document.getElementById('ambassadorCarousel');
+const dots = document.querySelectorAll('.carousel-dot');
+if (carousel && dots.length) {
+  carousel.addEventListener('scroll', () => {
+    const scrollLeft = carousel.scrollLeft;
+    const cardWidth = 344;
+    const activeIndex = Math.round(scrollLeft / cardWidth);
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === activeIndex);
+    });
+  }, { passive: true });
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const index = parseInt(dot.dataset.index);
+      carousel.scrollTo({ left: index * 344, behavior: 'smooth' });
+    });
+  });
+
+  let isDown = false, startX, scrollLeftPos;
+  carousel.addEventListener('mousedown', e => {
+    isDown = true; startX = e.pageX - carousel.offsetLeft;
+    scrollLeftPos = carousel.scrollLeft;
+  });
+  carousel.addEventListener('mouseleave', () => isDown = false);
+  carousel.addEventListener('mouseup', () => isDown = false);
+  carousel.addEventListener('mousemove', e => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - carousel.offsetLeft;
+    carousel.scrollLeft = scrollLeftPos - (x - startX) * 1.5;
+  });
+}
 </script>
 </body>
 </html>
