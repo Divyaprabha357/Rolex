@@ -9,7 +9,7 @@
 /* ═══════════════════════════════════════════════
    ROLEX CROWN ENERGY — ULTRA PREMIUM LANDING
    ═══════════════════════════════════════════════ */
-
+ 
 :root {
   --green: #006039;
   --green-deep: #003d20;
@@ -25,10 +25,10 @@
   --border-gold: rgba(184,148,31,0.12);
   --border-light: rgba(184,148,31,0.08);
 }
-
+ 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-
+ 
 body {
   font-family: 'Jost', sans-serif;
   background: var(--ink);
@@ -38,9 +38,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+ 
 ::selection { background: rgba(184,148,31,0.3); color: var(--ivory); }
-
+ 
 /* NOISE OVERLAY */
 body::after {
   content: '';
@@ -51,7 +51,7 @@ body::after {
   z-index: 9000;
   opacity: 0.5;
 }
-
+ 
 /* CUSTOM CURSOR */
 .cur {
   width: 6px; height: 6px;
@@ -71,10 +71,10 @@ body::after {
   transition: transform 0.6s cubic-bezier(0.22,1,0.36,1), opacity 0.4s, width 0.4s, height 0.4s, border-color 0.3s;
   opacity: 0.5;
 }
-
+ 
 /* SMOOTH SCROLL CONTAINER */
 .page-wrapper { position: relative; }
-
+ 
 /* ═══════════ PRELOADER ═══════════ */
 .preloader {
   position: fixed; inset: 0; z-index: 10000;
@@ -103,7 +103,7 @@ body::after {
 }
 @keyframes preloaderFade { to { opacity: 1; } }
 @keyframes preloaderLine { to { transform: scaleX(1); } }
-
+ 
 /* ═══════════ NAVIGATION ═══════════ */
 nav {
   position: absolute; top: 0; width: 100%;
@@ -147,7 +147,7 @@ nav.scrolled {
   letter-spacing: 0.2em; text-transform: uppercase;
   color: var(--ivory); opacity: 0.95;
 }
-
+ 
 /* ═══════════ HERO ═══════════ */
 .hero {
   min-height: 100vh; min-height: 100dvh;
@@ -156,7 +156,7 @@ nav.scrolled {
   padding: 0 72px;
   position: relative; overflow: hidden;
 }
-
+ 
 /* Hero ambient background */
 .hero-ambient {
   position: absolute; inset: 0; pointer-events: none; overflow: hidden;
@@ -184,7 +184,7 @@ nav.scrolled {
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.6; transform: scale(1.1); }
 }
-
+ 
 .hero-content { position: relative; z-index: 2; }
 .hero-eyebrow {
   font-family: 'Syncopate', sans-serif;
@@ -243,7 +243,7 @@ nav.scrolled {
 }
 .btn-primary:hover::before { transform: translateY(0); }
 .btn-primary span { position: relative; z-index: 1; }
-
+ 
 .btn-ghost {
   font-family: 'Syncopate', sans-serif;
   font-size: 8px; letter-spacing: 0.3em;
@@ -258,7 +258,7 @@ nav.scrolled {
   transition: transform 0.5s cubic-bezier(0.22,1,0.36,1);
 }
 .btn-ghost:hover::after { transform: translateX(6px); }
-
+ 
 /* Hero right side — product showcase */
 .hero-visual {
   display: flex; justify-content: center; align-items: center;
@@ -325,7 +325,7 @@ nav.scrolled {
   writing-mode: vertical-rl;
   transform: rotate(180deg);
 }
-
+ 
 @keyframes orbitSpin { to { transform: rotate(360deg); } }
 @keyframes canFloat {
   0%, 100% { transform: translateY(0) rotate(-0.5deg); }
@@ -336,7 +336,7 @@ nav.scrolled {
   to { opacity: 1; transform: translateY(0); }
 }
 @keyframes heroFade { to { opacity: 1; } }
-
+ 
 /* Scroll indicator */
 .scroll-hint {
   position: absolute; bottom: 40px; left: 72px;
@@ -358,7 +358,7 @@ nav.scrolled {
   0%, 100% { opacity: 0.4; transform: scaleY(1); }
   50% { opacity: 0.8; transform: scaleY(1.1); }
 }
-
+ 
 /* ═══════════ MARQUEE ═══════════ */
 .marquee-section {
   overflow: hidden;
@@ -385,13 +385,25 @@ nav.scrolled {
   transform: rotate(45deg); flex-shrink: 0;
 }
 @keyframes marqueeScroll { to { transform: translateX(-50%); } }
-
+ 
 /* ═══════════ PHILOSOPHY SECTION (was "craft") ═══════════ */
+.philosophy-big-title {
+  font-family: 'Cormorant Garamond', sans-serif;
+  font-size: clamp(28px, 3.5vw, 15px);
+  font-weight: 400; letter-spacing: 0.45em;
+  text-transform: uppercase;
+  text-align: center;
+  color: rgba(184,148,31,0.6);
+  margin-bottom: 60px;
+}
 .philosophy {
   padding: 160px 72px;
   display: grid; grid-template-columns: 1fr 1fr;
-  gap: 120px; align-items: center;
+  gap: 80px; align-items: center;
   position: relative; overflow: hidden;
+}
+.philosophy-big-title-wrap {
+  grid-column: 1 / -1;
 }
 .philosophy-ambient {
   position: absolute; inset: 0; pointer-events: none;
@@ -436,15 +448,193 @@ nav.scrolled {
 }
 .detail-label {
   font-family: 'Syncopate', sans-serif;
-  font-size: 6.5px; letter-spacing: 0.35em;
-  text-transform: uppercase; color: rgba(250,248,243,0.2);
+  font-size: 7px; letter-spacing: 0.35em;
+  text-transform: uppercase; color: rgba(250,248,243,0.35);
 }
 .detail-value {
   font-family: 'Cormorant Garamond', serif;
   font-size: 15px; font-weight: 300; font-style: italic;
   color: rgba(250,248,243,0.55); letter-spacing: 0.04em;
 }
-
+ 
+/* Hans Wilsdorf portrait */
+.philosophy-portrait {
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+}
+.portrait-frame {
+  position: relative;
+  overflow: hidden;
+}
+.portrait-frame::before {
+  content: '';
+  position: absolute; inset: 0;
+  border: 1px solid rgba(184,148,31,0.2);
+  z-index: 2; pointer-events: none;
+}
+.portrait-frame::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(8,7,4,0.6) 100%);
+  z-index: 2; pointer-events: none;
+}
+.portrait-img {
+  width: 100%; max-width: 420px;
+  height: auto; display: block;
+  filter: sepia(0.15) contrast(1.05) brightness(0.9);
+  opacity: 0; transform: scale(1.08);
+  transition: opacity 1.4s cubic-bezier(0.22,1,0.36,1), transform 2s cubic-bezier(0.22,1,0.36,1);
+}
+.philosophy-portrait.vis .portrait-img {
+  opacity: 1; transform: scale(1);
+}
+.portrait-caption {
+  position: absolute; bottom: 24px; left: 24px;
+  z-index: 3;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px; font-style: italic;
+  color: rgba(250,248,243,0.9);
+  letter-spacing: 0.04em;
+}
+.portrait-caption span {
+  display: block;
+  font-family: 'Syncopate', sans-serif;
+  font-size: 7px; font-style: normal;
+  letter-spacing: 0.35em; text-transform: uppercase;
+  color: rgba(184,148,31,0.85);
+  margin-top: 6px;
+}
+.portrait-gold-line {
+  position: absolute; top: -20px; right: -20px;
+  width: 80px; height: 80px;
+  border-top: 1px solid rgba(184,148,31,0.25);
+  border-right: 1px solid rgba(184,148,31,0.25);
+  z-index: 3; pointer-events: none;
+  opacity: 0; transform: translate(10px, -10px);
+  transition: opacity 1.2s 0.4s ease, transform 1.2s 0.4s cubic-bezier(0.22,1,0.36,1);
+}
+.philosophy-portrait.vis .portrait-gold-line {
+  opacity: 1; transform: translate(0, 0);
+}
+.portrait-gold-line-bl {
+  position: absolute; bottom: -20px; left: -20px;
+  width: 80px; height: 80px;
+  border-bottom: 1px solid rgba(184,148,31,0.25);
+  border-left: 1px solid rgba(184,148,31,0.25);
+  z-index: 3; pointer-events: none;
+  opacity: 0; transform: translate(-10px, 10px);
+  transition: opacity 1.2s 0.5s ease, transform 1.2s 0.5s cubic-bezier(0.22,1,0.36,1);
+}
+.philosophy-portrait.vis .portrait-gold-line-bl {
+  opacity: 1; transform: translate(0, 0);
+}
+ 
+/* ═══════════ TIMELINE ═══════════ */
+.timeline-section {
+  padding: 120px 72px 160px;
+  position: relative;
+  background: var(--ink);
+}
+.timeline-title {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 8px; letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-align: center;
+  margin-bottom: 80px;
+  display: flex; align-items: center;
+  justify-content: center; gap: 20px;
+}
+.timeline-title::before,
+.timeline-title::after {
+  content: ''; width: 60px; height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold));
+  opacity: 0.3;
+}
+.timeline-title::after {
+  background: linear-gradient(to left, transparent, var(--gold));
+}
+.timeline {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  padding-left: 60px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 20px; top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(184,148,31,0.3) 10%, rgba(184,148,31,0.3) 90%, transparent);
+}
+.timeline-item {
+  position: relative;
+  padding: 0 0 80px 40px;
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 1s cubic-bezier(0.22,1,0.36,1), transform 1.2s cubic-bezier(0.22,1,0.36,1);
+}
+.timeline-item.vis {
+  opacity: 1; transform: translateY(0);
+}
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -47px; top: 6px;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  border: 1.5px solid var(--gold);
+  background: var(--ink);
+  transition: background 0.5s, box-shadow 0.5s;
+  z-index: 2;
+}
+.timeline-item.vis::before {
+  background: var(--gold);
+  box-shadow: 0 0 16px rgba(212,175,55,0.4);
+}
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  left: -51px; top: 2px;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  border: 1px solid rgba(184,148,31,0.15);
+  opacity: 0;
+  transition: opacity 0.8s 0.3s;
+}
+.timeline-item.vis::after { opacity: 1; }
+.timeline-year {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 10px; letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 8px;
+}
+.timeline-phase {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 300;
+  color: var(--ivory);
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+.timeline-desc {
+  font-size: 13px; font-weight: 300;
+  color: rgba(250,248,243,0.3);
+  line-height: 1.8;
+  max-width: 460px;
+  letter-spacing: 0.02em;
+}
+.timeline-glow {
+  position: absolute;
+  left: -100px; top: 50%;
+  transform: translateY(-50%);
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(184,148,31,0.03) 0%, transparent 60%);
+  pointer-events: none;
+}
+ 
 /* Stats grid */
 .stats-grid {
   display: grid; grid-template-columns: 1fr 1fr;
@@ -477,7 +667,7 @@ nav.scrolled {
   color: rgba(250,248,243,0.2);
   margin-top: 12px;
 }
-
+ 
 /* ═══════════ COLLECTION ═══════════ */
 .collection {
   padding: 160px 72px;
@@ -489,7 +679,7 @@ nav.scrolled {
 }
 .collection-header .sec-tag {
   font-family: 'Syncopate', sans-serif;
-  font-size: 8px; letter-spacing: 0.45em;
+  font-size: 15px; letter-spacing: 0.45em;
   text-transform: uppercase; color: var(--gold);
   display: block; margin-bottom: 20px;
 }
@@ -505,7 +695,7 @@ nav.scrolled {
   color: rgba(250,248,243,0.3);
   margin-top: 16px; letter-spacing: 0.04em;
 }
-
+ 
 .collection-grid {
   display: grid; grid-template-columns: repeat(3, 1fr);
   gap: 3px; max-width: 1200px; margin: 0 auto;
@@ -523,7 +713,7 @@ nav.scrolled {
   transition: transform 0.8s cubic-bezier(0.22,1,0.36,1);
 }
 .coll-card:hover .coll-inner { transform: scale(0.97); }
-
+ 
 .c-green {
   background: linear-gradient(165deg, #005a30 0%, #002815 60%, #001a0d 100%);
   color: white;
@@ -536,7 +726,7 @@ nav.scrolled {
   background: linear-gradient(165deg, #111110 0%, #080807 60%, #020201 100%);
   color: white;
 }
-
+ 
 /* Subtle inner glow on cards */
 .coll-inner::before {
   content: ''; position: absolute;
@@ -547,7 +737,7 @@ nav.scrolled {
   transition: transform 0.8s cubic-bezier(0.22,1,0.36,1);
 }
 .coll-card:hover .coll-inner::before { transform: scale(1.2); }
-
+ 
 /* Shimmer effect */
 .shimmer {
   position: absolute; top: -100%; left: -60%;
@@ -558,7 +748,7 @@ nav.scrolled {
   pointer-events: none;
 }
 .coll-card:hover .shimmer { left: 160%; }
-
+ 
 .card-eye {
   font-family: 'Syncopate', sans-serif;
   font-size: 10px; letter-spacing: 0.4em;
@@ -577,7 +767,7 @@ nav.scrolled {
 .c-green .card-can { height: 330px; }
 .c-gold .card-can { height: 330px; }
 .c-noir .card-can { height: 330px; }
-
+ 
 .coll-card:hover .card-can {
   transform: translateY(-16px) scale(1.06);
   filter: drop-shadow(0 35px 60px rgba(0,0,0,0.5));
@@ -615,7 +805,7 @@ nav.scrolled {
   transform: rotate(45deg); opacity: inherit;
 }
 .coll-card:hover .card-arr { width: 56px; opacity: 0.6; }
-
+ 
 /* ═══════════ INGREDIENTS RIBBON ═══════════ */
 .ingredients {
   padding: 100px 72px;
@@ -674,7 +864,7 @@ nav.scrolled {
   color: rgba(250,248,243,0.28);
   line-height: 1.7; letter-spacing: 0.02em;
 }
-
+ 
 /* ═══════════ CTA / LEGACY ═══════════ */
 .legacy {
   padding: 200px 72px;
@@ -737,7 +927,7 @@ nav.scrolled {
 }
 .btn-legacy:hover::before { transform: translateY(0); }
 .btn-legacy span { position: relative; z-index: 1; }
-
+ 
 /* ═══════════ FOOTER ═══════════ */
 footer {
   background: var(--ink);
@@ -802,14 +992,14 @@ footer {
   transition: color 0.3s;
 }
 .footer-legal a:hover { color: rgba(250,248,243,0.3); }
-
+ 
 /* ═══════════ DIVIDERS ═══════════ */
 .gold-divider {
   height: 1px; margin: 0 72px;
   background: linear-gradient(to right, transparent, var(--gold), transparent);
   opacity: 0.12;
 }
-
+ 
 /* ═══════════ REVEAL ANIMATIONS ═══════════ */
 .reveal {
   opacity: 0; transform: translateY(40px);
@@ -821,10 +1011,10 @@ footer {
 .d3 { transition-delay: 0.36s; }
 .d4 { transition-delay: 0.48s; }
 .d5 { transition-delay: 0.60s; }
-
+ 
 /* Parallax effect class */
 .parallax { will-change: transform; }
-
+ 
 /* ═══════════ RESPONSIVE ═══════════ */
 @media (max-width: 1024px) {
   .hero { grid-template-columns: 1fr; padding: 120px 40px 60px; }
@@ -863,18 +1053,18 @@ footer {
 </style>
 </head>
 <body>
-
+ 
 <!-- PRELOADER -->
 <div class="preloader" id="preloader">
   <img class="preloader-crown" src="assets/crown.png" alt="">
   <div class="preloader-line"></div>
   <p class="preloader-text">Crown Energy Division</p>
 </div>
-
+ 
 <!-- CURSOR -->
 <div class="cur" id="cur"></div>
 <div class="cur-ring" id="curR"></div>
-
+ 
 <!-- NAVIGATION -->
 <nav id="mainNav">
   <ul class="nav-links">
@@ -890,7 +1080,7 @@ footer {
     <li><a href="#legacy">Reserve</a></li>
   </ul>
 </nav>
-
+ 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-ambient">
@@ -898,16 +1088,16 @@ footer {
     <div class="hero-glow-2"></div>
     <div class="hero-line-h"></div>
   </div>
-
+ 
   <div class="hero-content">
-    <p class="hero-eyebrow">Crown Energy Division · Est. 2026</p>
+    <p class="hero-eyebrow">Crown Energy Division · Est. 2023</p>
     <h1 class="hero-headline">A Crown for Every<br><em>Achievement.</em></h1>
     <p class="hero-sub">The world's first ultra-premium energy drink engineered with the obsessive precision that defines every Rolex calibre. Not for everyone. By design.</p>
     <div class="cta-group">
       <button class="btn-primary"><span>Reserve Your Crown</span></button>
     </div>
   </div>
-
+ 
   <div class="hero-visual">
     <div class="orbit-system">
       <div class="orbit-ring orbit-ring-1"></div>
@@ -919,13 +1109,13 @@ footer {
       <span class="can-label can-label-left">Oyster Green · Chronometry</span>
     </div>
   </div>
-
+ 
   <div class="scroll-hint">
     <div class="scroll-line"></div>
     <span class="scroll-text">Scroll</span>
   </div>
 </section>
-
+ 
 <!-- MARQUEE -->
 <div class="marquee-section">
   <div class="marquee-track">
@@ -945,31 +1135,73 @@ footer {
    
   </div>
 </div>
-
+ 
 <!-- PHILOSOPHY -->
 <section id="philosophy" class="philosophy">
   <div class="philosophy-ambient">
     <div class="philosophy-glow"></div>
   </div>
+  <h2 class="philosophy-big-title reveal philosophy-big-title-wrap">Philosophy</h2>
   <div class="reveal">
-    <span class="philosophy-tag">Philosophy</span>
     <h2 class="philosophy-headline">Time was never<br>chased.<br><em>It was mastered.</em></h2>
     <p class="philosophy-body">Energy is engineered like a movement — every compound calibrated, every molecule intentional. This isn't fuel. It's architecture for the human engine. Built for those who measure life in accomplishments, not hours.</p>
     <div class="philosophy-detail">
       <div class="philosophy-detail-item">
         <span class="detail-label">Origin</span>
-        <span class="detail-value">Swiss-sourced adaptogens</span>
+        <span class="detail-value">Swiss Adaptogens</span>
       </div>
       <div class="philosophy-detail-item">
         <span class="detail-label">Process</span>
-        <span class="detail-value">Cold-extracted botanicals</span>
+        <span class="detail-value">Cold Extracted Botanicals</span>
+      </div>
+    </div>
+  </div>
+  <div class="philosophy-portrait reveal">
+    <div class="portrait-gold-line"></div>
+    <div class="portrait-gold-line-bl"></div>
+    <div class="portrait-frame">
+      <img class="portrait-img" src="assets/hans.png" alt="Hans Wilsdorf">
+      <div class="portrait-caption">
+        Hans Wilsdorf
+        <span>Founder ·</span>
       </div>
     </div>
   </div>
 </section>
-
+ 
+<!-- TIMELINE -->
+<section class="timeline-section">
+  <div class="timeline-title reveal">The Crown Energy Chronicle</div>
+  <div class="timeline">
+    <div class="timeline-item reveal">
+      <div class="timeline-glow"></div>
+      <div class="timeline-year">2023 · Genesis Phase</div>
+      <div class="timeline-phase">The Geneva Protocol</div>
+      <div class="timeline-desc">Deep within Rolex's Geneva research division, a classified initiative begins — codename "Crown Energy." A team of biochemists and horological engineers unite to answer one question: can precision be consumed?</div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-glow"></div>
+      <div class="timeline-year">2024 · Validation Phase</div>
+      <div class="timeline-phase">Testing the Limit</div>
+      <div class="timeline-desc">847 formulations tested. 12 selected. Each compound measured to the nanogram — the same tolerance applied to Rolex movement springs. Clinical trials confirm sustained 4-hour cognitive elevation without crash.</div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-glow"></div>
+      <div class="timeline-year">2025 · Building Phase</div>
+      <div class="timeline-phase">The Certification Year</div>
+      <div class="timeline-desc">Three editions finalized: Verdant Chrona, Aurum Cycle, Noir Kinetic. Each can receives the Crown Energy seal — a quality certification process modeled after Rolex's Superlative Chronometer standard.</div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-glow"></div>
+      <div class="timeline-year">2026 · Launch Phase</div>
+      <div class="timeline-phase">The Global Unveiling</div>
+      <div class="timeline-desc">Crown Energy launches at Design Paradox 2026. Limited first-edition cans released to select members. The circle opens — but only for those who qualify.</div>
+    </div>
+  </div>
+</section>
+ 
 <div class="gold-divider"></div>
-
+ 
 <!-- COLLECTION -->
 <section id="collection" class="collection">
   <div class="collection-header reveal">
@@ -977,7 +1209,7 @@ footer {
     <h2 class="sec-title">Three expressions.<br><em>One philosophy.</em></h2>
     <p class="collection-sub">Each edition calibrated for a different dimension of performance.</p>
   </div>
-
+ 
   <div class="collection-grid">
     <div class="coll-card reveal">
       <div class="coll-inner c-green">
@@ -994,7 +1226,7 @@ footer {
         </div>
       </div>
     </div>
-
+ 
     <div class="coll-card reveal d1">
       <div class="coll-inner c-gold">
         <div class="shimmer"></div>
@@ -1010,7 +1242,7 @@ footer {
         </div>
       </div>
     </div>
-
+ 
     <div class="coll-card reveal d2">
       <div class="coll-inner c-noir">
         <div class="shimmer"></div>
@@ -1028,9 +1260,9 @@ footer {
     </div>
   </div>
 </section>
-
+ 
 <div class="gold-divider"></div>
-
+ 
 <!-- INGREDIENTS -->
 <section id="ingredients" class="ingredients">
   <div class="ingredients-inner">
@@ -1062,7 +1294,7 @@ footer {
     </div>
   </div>
 </section>
-
+ 
 <!-- LEGACY CTA -->
 <section id="legacy" class="legacy">
   <div class="legacy-ambient">
@@ -1072,9 +1304,9 @@ footer {
   <p class="legacy-sub reveal d1">For those who have already arrived.</p>
   <a href="#" class="btn-legacy reveal d2"><span>Reserve Your Crown</span></a>
 </section>
-
+ 
 <div class="gold-divider"></div>
-
+ 
 <!-- FOOTER -->
 <footer>
   <div class="footer-top">
@@ -1113,7 +1345,7 @@ footer {
     </ul>
   </div>
 </footer>
-
+ 
 <script>
 // ═══════════ PRELOADER ═══════════
 window.addEventListener('load', () => {
@@ -1121,18 +1353,18 @@ window.addEventListener('load', () => {
     document.getElementById('preloader').classList.add('done');
   }, 2200);
 });
-
+ 
 // ═══════════ CUSTOM CURSOR ═══════════
 const cur = document.getElementById('cur');
 const curR = document.getElementById('curR');
 let mx = 0, my = 0, rx = 0, ry = 0;
-
+ 
 document.addEventListener('mousemove', e => {
   mx = e.clientX; my = e.clientY;
   cur.style.left = mx - 3 + 'px';
   cur.style.top = my - 3 + 'px';
 });
-
+ 
 (function cursorLoop() {
   rx += (mx - rx) * 0.09;
   ry += (my - ry) * 0.09;
@@ -1140,7 +1372,7 @@ document.addEventListener('mousemove', e => {
   curR.style.top = ry - 18 + 'px';
   requestAnimationFrame(cursorLoop);
 })();
-
+ 
 // Cursor hover effects
 document.querySelectorAll('a, button, .coll-card, .stat-card, .ingredient-item').forEach(el => {
   el.addEventListener('mouseenter', () => {
@@ -1158,7 +1390,7 @@ document.querySelectorAll('a, button, .coll-card, .stat-card, .ingredient-item')
     curR.style.borderColor = 'rgba(212,175,55,0.4)';
   });
 });
-
+ 
 // ═══════════ NAV SCROLL ═══════════
 const mainNav = document.getElementById('mainNav');
 let lastScroll = 0;
@@ -1171,16 +1403,16 @@ window.addEventListener('scroll', () => {
   }
   lastScroll = y;
 }, { passive: true });
-
+ 
 // ═══════════ REVEAL ON SCROLL ═══════════
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) e.target.classList.add('vis');
   });
 }, { threshold: 0.06, rootMargin: '0px 0px -60px 0px' });
-
+ 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
+ 
 // ═══════════ PARALLAX SUBTLE ═══════════
 let ticking = false;
 window.addEventListener('scroll', () => {
@@ -1196,7 +1428,7 @@ window.addEventListener('scroll', () => {
     ticking = true;
   }
 }, { passive: true });
-
+ 
 // ═══════════ STAT COUNTER ANIMATION ═══════════
 const statNumbers = document.querySelectorAll('.stat-number');
 const statObserver = new IntersectionObserver(entries => {
@@ -1222,9 +1454,9 @@ const statObserver = new IntersectionObserver(entries => {
     }
   });
 }, { threshold: 0.5 });
-
+ 
 statNumbers.forEach(el => statObserver.observe(el));
-
+ 
 // ═══════════ SMOOTH SECTION SCROLL ═══════════
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', e => {
