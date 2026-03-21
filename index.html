@@ -155,6 +155,8 @@ nav.scrolled {
   align-items: center;
   padding: 0 72px;
   position: relative; overflow: hidden;
+  background: var(--ink);
+  color: var(--ivory);
 }
  
 /* Hero ambient background */
@@ -672,7 +674,8 @@ nav.scrolled {
 .collection {
   padding: 160px 72px;
   position: relative;
-  background: linear-gradient(180deg, var(--ink) 0%, var(--ink-soft) 50%, var(--ink) 100%);
+  background: var(--ivory);
+  color: var(--ink);
 }
 .collection-header {
   text-align: center; margin-bottom: 80px;
@@ -689,10 +692,10 @@ nav.scrolled {
   font-weight: 300; line-height: 1.1;
   letter-spacing: -0.01em;
 }
-.collection-header .sec-title em { font-style: italic; color: var(--gold-light); }
+.collection-header .sec-title em { font-style: italic; color: var(--gold); }
 .collection-sub {
   font-size: 13px; font-weight: 300;
-  color: rgba(250,248,243,0.3);
+  color: rgba(8,7,4,0.4);
   margin-top: 16px; letter-spacing: 0.04em;
 }
  
@@ -810,6 +813,7 @@ nav.scrolled {
 .ingredients {
   padding: 100px 72px;
   background: var(--ink);
+  color: var(--ivory);
   border-top: 1px solid rgba(184,148,31,0.06);
   border-bottom: 1px solid rgba(184,148,31,0.06);
 }
@@ -819,7 +823,7 @@ nav.scrolled {
   gap: 80px; align-items: start;
 }
 .ingredients-left {
-  position: sticky; top: 120px;
+  position: static;
 }
 .ingredients-left .sec-tag {
   font-family: 'Syncopate', sans-serif;
@@ -870,6 +874,8 @@ nav.scrolled {
   padding: 200px 72px;
   text-align: center;
   position: relative; overflow: hidden;
+  background: var(--ivory);
+  color: var(--ink);
 }
 .legacy-ambient {
   position: absolute; inset: 0; pointer-events: none;
@@ -896,10 +902,10 @@ nav.scrolled {
   max-width: 800px; margin: 0 auto 22px;
   position: relative; z-index: 2;
 }
-.legacy-headline em { font-style: italic; color: var(--gold-light); }
+.legacy-headline em { font-style: italic; color: var(--gold); }
 .legacy-sub {
   font-size: 14px; font-weight: 300;
-  color: rgba(250,248,243,0.3);
+  color: rgba(8,7,4,0.4);
   letter-spacing: 0.06em; margin-bottom: 56px;
   position: relative; z-index: 2;
 }
@@ -1136,66 +1142,34 @@ footer {
   </div>
 </div>
  
-<!-- PHILOSOPHY -->
-<section id="philosophy" class="philosophy">
-  <div class="philosophy-ambient">
-    <div class="philosophy-glow"></div>
-  </div>
-  <h2 class="philosophy-big-title reveal philosophy-big-title-wrap">Philosophy</h2>
-  <div class="reveal">
-    <h2 class="philosophy-headline">Time was never<br>chased.<br><em>It was mastered.</em></h2>
-    <p class="philosophy-body">Energy is engineered like a movement — every compound calibrated, every molecule intentional. This isn't fuel. It's architecture for the human engine. Built for those who measure life in accomplishments, not hours.</p>
-    <div class="philosophy-detail">
-      <div class="philosophy-detail-item">
-        <span class="detail-label">Origin</span>
-        <span class="detail-value">Swiss Adaptogens</span>
+<!-- INGREDIENTS -->
+<section id="ingredients" class="ingredients">
+  <div class="ingredients-inner">
+    <div class="ingredients-left reveal">
+      <span class="sec-tag">The Formula</span>
+      <h2 class="ingredients-title">Compounds chosen<br>for <em>precision</em> <br>not sensation.</h2>
+    </div>
+    <div class="ingredient-list">
+      <div class="ingredient-item reveal d1">
+        <div class="ingredient-number">01</div>
+        <div class="ingredient-name">Alpine Rhodiola</div>
+        <div class="ingredient-desc">Adaptogenic root cultivated above 3,000m. Sustains cognitive clarity under sustained pressure.</div>
       </div>
-      <div class="philosophy-detail-item">
-        <span class="detail-label">Process</span>
-        <span class="detail-value">Cold Extracted Botanicals</span>
+      <div class="ingredient-item reveal d2">
+        <div class="ingredient-number">02</div>
+        <div class="ingredient-name">Electrolyte Matrix</div>
+        <div class="ingredient-desc">Mineral calibration modeled after optimal cellular hydration curves. No excess.</div>
       </div>
-    </div>
-  </div>
-  <div class="philosophy-portrait reveal">
-    <div class="portrait-gold-line"></div>
-    <div class="portrait-gold-line-bl"></div>
-    <div class="portrait-frame">
-      <img class="portrait-img" src="assets/hans.png" alt="Hans Wilsdorf">
-      <div class="portrait-caption">
-        Hans Wilsdorf
-        <span>Founder ·</span>
+      <div class="ingredient-item reveal d3">
+        <div class="ingredient-number">03</div>
+        <div class="ingredient-name">Siberian Ginseng</div>
+        <div class="ingredient-desc">Endurance-class adaptogen. Extends the productive window without metabolic debt.</div>
       </div>
-    </div>
-  </div>
-</section>
- 
-<!-- TIMELINE -->
-<section class="timeline-section">
-  <div class="timeline-title reveal">The Crown Energy Chronicle</div>
-  <div class="timeline">
-    <div class="timeline-item reveal">
-      <div class="timeline-glow"></div>
-      <div class="timeline-year">2023 · Genesis Phase</div>
-      <div class="timeline-phase">The Geneva Protocol</div>
-      <div class="timeline-desc">Deep within Rolex's Geneva research division, a classified initiative begins — codename "Crown Energy." A team of biochemists and horological engineers unite to answer one question: can precision be consumed?</div>
-    </div>
-    <div class="timeline-item reveal">
-      <div class="timeline-glow"></div>
-      <div class="timeline-year">2024 · Validation Phase</div>
-      <div class="timeline-phase">Testing the Limit</div>
-      <div class="timeline-desc">847 formulations tested. 12 selected. Each compound measured to the nanogram — the same tolerance applied to Rolex movement springs. Clinical trials confirm sustained 4-hour cognitive elevation without crash.</div>
-    </div>
-    <div class="timeline-item reveal">
-      <div class="timeline-glow"></div>
-      <div class="timeline-year">2025 · Building Phase</div>
-      <div class="timeline-phase">The Certification Year</div>
-      <div class="timeline-desc">Three editions finalized: Verdant Chrona, Aurum Cycle, Noir Kinetic. Each can receives the Crown Energy seal — a quality certification process modeled after Rolex's Superlative Chronometer standard.</div>
-    </div>
-    <div class="timeline-item reveal">
-      <div class="timeline-glow"></div>
-      <div class="timeline-year">2026 · Launch Phase</div>
-      <div class="timeline-phase">The Global Unveiling</div>
-      <div class="timeline-desc">Crown Energy launches at Design Paradox 2026. Limited first-edition cans released to select members. The circle opens — but only for those who qualify.</div>
+      <div class="ingredient-item reveal d4">
+        <div class="ingredient-number">04</div>
+        <div class="ingredient-name">B-Vitamin Cascade</div>
+        <div class="ingredient-desc">Staged-release methylated B-complex. Energy metabolism without the spike-crash profile.</div>
+      </div>
     </div>
   </div>
 </section>
@@ -1263,34 +1237,66 @@ footer {
  
 <div class="gold-divider"></div>
  
-<!-- INGREDIENTS -->
-<section id="ingredients" class="ingredients">
-  <div class="ingredients-inner">
-    <div class="ingredients-left reveal">
-      <span class="sec-tag">The Formula</span>
-      <h2 class="ingredients-title">Compounds chosen<br>for <em>precision</em> <br>not sensation.</h2>
+<!-- PHILOSOPHY -->
+<section id="philosophy" class="philosophy">
+  <div class="philosophy-ambient">
+    <div class="philosophy-glow"></div>
+  </div>
+  <h2 class="philosophy-big-title reveal philosophy-big-title-wrap">Philosophy</h2>
+  <div class="reveal">
+    <h2 class="philosophy-headline">Time was never<br>chased.<br><em>It was mastered.</em></h2>
+    <p class="philosophy-body">Energy is engineered like a movement — every compound calibrated, every molecule intentional. This isn't fuel. It's architecture for the human engine. Built for those who measure life in accomplishments, not hours.</p>
+    <div class="philosophy-detail">
+      <div class="philosophy-detail-item">
+        <span class="detail-label">Origin</span>
+        <span class="detail-value">Swiss Adaptogens</span>
+      </div>
+      <div class="philosophy-detail-item">
+        <span class="detail-label">Process</span>
+        <span class="detail-value">Cold Extracted Botanicals</span>
+      </div>
     </div>
-    <div class="ingredient-list">
-      <div class="ingredient-item reveal d1">
-        <div class="ingredient-number">01</div>
-        <div class="ingredient-name">Alpine Rhodiola</div>
-        <div class="ingredient-desc">Adaptogenic root cultivated above 3,000m. Sustains cognitive clarity under sustained pressure.</div>
+  </div>
+  <div class="philosophy-portrait reveal">
+    <div class="portrait-gold-line"></div>
+    <div class="portrait-gold-line-bl"></div>
+    <div class="portrait-frame">
+      <img class="portrait-img" src="assets/hans.png" alt="Hans Wilsdorf">
+      <div class="portrait-caption">
+        Hans Wilsdorf
+        <span>Founder ·</span>
       </div>
-      <div class="ingredient-item reveal d2">
-        <div class="ingredient-number">02</div>
-        <div class="ingredient-name">Electrolyte Matrix</div>
-        <div class="ingredient-desc">Mineral calibration modeled after optimal cellular hydration curves. No excess.</div>
-      </div>
-      <div class="ingredient-item reveal d3">
-        <div class="ingredient-number">03</div>
-        <div class="ingredient-name">Siberian Ginseng</div>
-        <div class="ingredient-desc">Endurance-class adaptogen. Extends the productive window without metabolic debt.</div>
-      </div>
-      <div class="ingredient-item reveal d4">
-        <div class="ingredient-number">04</div>
-        <div class="ingredient-name">B-Vitamin Cascade</div>
-        <div class="ingredient-desc">Staged-release methylated B-complex. Energy metabolism without the spike-crash profile.</div>
-      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- TIMELINE -->
+<section class="timeline-section">
+  <div class="timeline-title reveal">The Crown Energy Chronicle</div>
+  <div class="timeline">
+    <div class="timeline-item reveal">
+      <div class="timeline-glow"></div>
+      <div class="timeline-year">2023 · Genesis Phase</div>
+      <div class="timeline-phase">The Geneva Protocol</div>
+      <div class="timeline-desc">Deep within Rolex's Geneva research division, a classified initiative begins — codename "Crown Energy." A team of biochemists and horological engineers unite to answer one question: can precision be consumed?</div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-glow"></div>
+      <div class="timeline-year">2024 · Validation Phase</div>
+      <div class="timeline-phase">Testing the Limit</div>
+      <div class="timeline-desc">847 formulations tested. 12 selected. Each compound measured to the nanogram — the same tolerance applied to Rolex movement springs. Clinical trials confirm sustained 4-hour cognitive elevation without crash.</div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-glow"></div>
+      <div class="timeline-year">2025 · Building Phase</div>
+      <div class="timeline-phase">The Certification Year</div>
+      <div class="timeline-desc">Three editions finalized: Verdant Chrona, Aurum Cycle, Noir Kinetic. Each can receives the Crown Energy seal — a quality certification process modeled after Rolex's Superlative Chronometer standard.</div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-glow"></div>
+      <div class="timeline-year">2026 · Launch Phase</div>
+      <div class="timeline-phase">The Global Unveiling</div>
+      <div class="timeline-desc">Crown Energy launches at Design Paradox 2026. Limited first-edition cans released to select members. The circle opens — but only for those who qualify.</div>
     </div>
   </div>
 </section>
