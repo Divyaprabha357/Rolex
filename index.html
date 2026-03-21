@@ -110,23 +110,23 @@ nav {
   padding: 0 56px; height: 80px;
   display: flex; justify-content: space-between; align-items: center;
   z-index: 500;
-  background: linear-gradient(180deg, rgba(8,7,4,0.95) 0%, rgba(8,7,4,0) 100%);
+  background: #006039;
   transition: background 0.5s, backdrop-filter 0.5s;
 }
 nav.scrolled {
-  background: rgba(8,7,4,0.92);
+  background: #003d20;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 }
 .nav-links {
   display: flex; gap: 48px; list-style: none;
   font-family: 'Syncopate', sans-serif;
-  font-size: 8px; letter-spacing: 0.25em;
+  font-size: 11px; letter-spacing: 0.25em;
   text-transform: uppercase;
 }
 .nav-links a {
   color: var(--ivory); text-decoration: none;
-  opacity: 0.6; transition: opacity 0.4s; position: relative;
+  opacity: 0.9; transition: opacity 0.4s; position: relative;
 }
 .nav-links a::after {
   content: ''; position: absolute;
@@ -140,10 +140,10 @@ nav.scrolled {
   display: flex; align-items: center; gap: 10px;
   position: absolute; left: 50%; transform: translateX(-50%);
 }
-.nav-crown { width: 32px; height: auto; opacity: 0.9; }
+.nav-crown { width: 56px; height: auto; opacity: 0.9; }
 .nav-wordmark {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 22px; font-weight: 400;
+  font-size: 30px; font-weight: 400;
   letter-spacing: 0.2em; text-transform: uppercase;
   color: var(--ivory); opacity: 0.95;
 }
@@ -316,12 +316,12 @@ nav.scrolled {
 }
 .can-label-right {
   top: 30%; right: -20px;
-  color: var(--gold); opacity: 0.35;
+  color: var(--gold); opacity: 0.7;
   writing-mode: vertical-rl;
 }
 .can-label-left {
   bottom: 32%; left: -10px;
-  color: rgba(250,248,243,0.2);
+  color: rgba(250,248,243,0.6);
   writing-mode: vertical-rl;
   transform: rotate(180deg);
 }
@@ -362,10 +362,10 @@ nav.scrolled {
 /* ═══════════ MARQUEE ═══════════ */
 .marquee-section {
   overflow: hidden;
-  border-top: 1px solid rgba(184,148,31,0.08);
-  border-bottom: 1px solid rgba(184,148,31,0.08);
-  padding: 16px 0;
-  background: linear-gradient(90deg, rgba(0,96,57,0.04), transparent, rgba(184,148,31,0.03));
+  border-top: 1px solid rgba(184,148,31,0.25);
+  border-bottom: 1px solid rgba(184,148,31,0.25);
+  padding: 18px 0;
+  background: rgba(184,148,31,0.06);
 }
 .marquee-track {
   display: flex; gap: 56px;
@@ -375,7 +375,7 @@ nav.scrolled {
 .marquee-item {
   font-family: 'Cormorant Garamond', serif;
   font-size: 15px; font-weight: 400; font-style: italic;
-  letter-spacing: 0.1em; color: rgba(250,248,243,0.35);
+  letter-spacing: 0.1em; color: rgba(250,248,243,1);
   white-space: nowrap;
   display: flex; align-items: center; gap: 28px;
 }
@@ -516,7 +516,7 @@ nav.scrolled {
 }
 .coll-inner {
   padding: 48px 32px 40px;
-  height: 580px;
+  height: 700px;
   display: flex; flex-direction: column;
   justify-content: space-between;
   position: relative;
@@ -574,7 +574,10 @@ nav.scrolled {
   filter: drop-shadow(0 25px 50px rgba(0,0,0,0.4));
   transition: transform 1s cubic-bezier(0.22,1,0.36,1), filter 0.8s ease;
 }
-.c-green .card-can { height: 260px; }
+.c-green .card-can { height: 330px; }
+.c-gold .card-can { height: 330px; }
+.c-noir .card-can { height: 330px; }
+
 .coll-card:hover .card-can {
   transform: translateY(-16px) scale(1.06);
   filter: drop-shadow(0 35px 60px rgba(0,0,0,0.5));
@@ -590,10 +593,17 @@ nav.scrolled {
   opacity: 0.35; letter-spacing: 0.16em;
   margin-top: 6px; text-transform: uppercase;
 }
+.card-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px; font-weight: 400;
+  color: var(--gold-light);
+  letter-spacing: 0.02em;
+  margin-top: 16px;
+}
 .card-arr {
   width: 28px; height: 1px;
   background: currentColor; opacity: 0.2;
-  margin-top: 20px; position: relative;
+  margin-top: 16px; position: relative;
   transition: width 0.6s cubic-bezier(0.22,1,0.36,1), opacity 0.4s;
 }
 .card-arr::after {
@@ -894,7 +904,7 @@ footer {
     <h1 class="hero-headline">A Crown for Every<br><em>Achievement.</em></h1>
     <p class="hero-sub">The world's first ultra-premium energy drink engineered with the obsessive precision that defines every Rolex calibre. Not for everyone. By design.</p>
     <div class="cta-group">
-      <button class="btn-primary"><span>Enter the Circle</span></button>
+      <button class="btn-primary"><span>Reserve Your Crown</span></button>
     </div>
   </div>
 
@@ -956,24 +966,6 @@ footer {
       </div>
     </div>
   </div>
-  <div class="stats-grid reveal d1">
-    <div class="stat-card">
-      <div class="stat-number">12</div>
-      <div class="stat-label">Active Compounds</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-number">Og</div>
-      <div class="stat-label">Artificial Sugar</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-number">4h</div>
-      <div class="stat-label">Sustained Focus</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-number">III</div>
-      <div class="stat-label">Editions Available</div>
-    </div>
-  </div>
 </section>
 
 <div class="gold-divider"></div>
@@ -997,6 +989,7 @@ footer {
         <div class="card-bottom">
           <p class="card-name">Verdant Chrona</p>
           <p class="card-sub">Oyster Green · Chronometry</p>
+          <p class="card-price">$849</p>
           <div class="card-arr"></div>
         </div>
       </div>
@@ -1012,6 +1005,7 @@ footer {
         <div class="card-bottom">
           <p class="card-name">Aurum Cycle</p>
           <p class="card-sub">Deep Gold · Kinetic Formula</p>
+          <p class="card-price">$849</p>
           <div class="card-arr"></div>
         </div>
       </div>
@@ -1027,6 +1021,7 @@ footer {
         <div class="card-bottom">
           <p class="card-name">Noir Kinetic</p>
           <p class="card-sub">Midnight Black · Obsidian Series</p>
+          <p class="card-price">$849</p>
           <div class="card-arr"></div>
         </div>
       </div>
@@ -1072,11 +1067,10 @@ footer {
 <section id="legacy" class="legacy">
   <div class="legacy-ambient">
     <div class="legacy-glow"></div>
-    <div class="legacy-ring"></div>
   </div>
   <h2 class="legacy-headline reveal">You don't need<br>more energy.<br>You need <em>control.</em></h2>
   <p class="legacy-sub reveal d1">For those who have already arrived.</p>
-  <a href="#" class="btn-legacy reveal d2"><span>Reserve Your Edition</span></a>
+  <a href="#" class="btn-legacy reveal d2"><span>Reserve Your Crown</span></a>
 </section>
 
 <div class="gold-divider"></div>
