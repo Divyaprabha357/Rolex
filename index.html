@@ -1888,10 +1888,10 @@ footer {
     </div>
     <div>
       <div class="wstat-number">153</div>
-      <div class="wstat-label">Crowns Remain</div>
+      <div class="wstat-label">Remaining</div>
     </div>
     <div>
-      <div class="wstat-number">25</div>
+      <div class="wstat-number">12</div>
       <div class="wstat-label">Countries</div>
     </div>
   </div>
@@ -2092,81 +2092,6 @@ function handleWaitlist() {
   }, 400);
 }
 
-// ═══════════ AMBASSADOR CAROUSEL ═══════════
-const carousel = document.getElementById('ambassadorCarousel');
-const dots = document.querySelectorAll('.carousel-dot');
-if (carousel && dots.length) {
-  carousel.addEventListener('scroll', () => {
-    const scrollLeft = carousel.scrollLeft;
-    const cardWidth = 344;
-    const activeIndex = Math.round(scrollLeft / cardWidth);
-    dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === activeIndex);
-    });
-  }, { passive: true });
-
-  dots.forEach(dot => {
-    dot.addEventListener('click', () => {
-      const index = parseInt(dot.dataset.index);
-      carousel.scrollTo({ left: index * 344, behavior: 'smooth' });
-    });
-  });
-
-  let isDown = false, startX, scrollLeftPos;
-  carousel.addEventListener('mousedown', e => {
-    isDown = true; startX = e.pageX - carousel.offsetLeft;
-    scrollLeftPos = carousel.scrollLeft;
-  });
-  carousel.addEventListener('mouseleave', () => isDown = false);
-  carousel.addEventListener('mouseup', () => isDown = false);
-  carousel.addEventListener('mousemove', e => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - carousel.offsetLeft;
-    carousel.scrollLeft = scrollLeftPos - (x - startX) * 1.5;
-  });
-}
-</script>
-</body>
-</html>
-// ═══════════ STAT COUNTER ANIMATION ═══════════
-const statNumbers = document.querySelectorAll('.stat-number');
-const statObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const el = entry.target;
-      const text = el.textContent;
-      const num = parseInt(text);
-      if (!isNaN(num) && num > 0 && num <= 100) {
-        let current = 0;
-        const increment = Math.max(1, Math.floor(num / 30));
-        const suffix = text.replace(String(num), '');
-        const interval = setInterval(() => {
-          current += increment;
-          if (current >= num) {
-            current = num;
-            clearInterval(interval);
-          }
-          el.textContent = current + suffix;
-        }, 40);
-      }
-      statObserver.unobserve(el);
-    }
-  });
-}, { threshold: 0.5 });
- 
-statNumbers.forEach(el => statObserver.observe(el));
- 
-// ═══════════ SMOOTH SECTION SCROLL ═══════════
-document.querySelectorAll('a[href^="#"]').forEach(link => {
-  link.addEventListener('click', e => {
-    e.preventDefault();
-    const target = document.querySelector(link.getAttribute('href'));
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  });
-});
 // ═══════════ AMBASSADOR CAROUSEL ═══════════
 const carousel = document.getElementById('ambassadorCarousel');
 const dots = document.querySelectorAll('.carousel-dot');
