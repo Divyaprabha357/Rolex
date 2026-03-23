@@ -28,13 +28,14 @@
  
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
- 
+ @media (pointer: fine) {
+  body { cursor: none; }
+}
 body {
   font-family: 'Jost', sans-serif;
   background: var(--ink);
   color: var(--ivory);
   overflow-x: hidden;
-  cursor: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -106,7 +107,7 @@ body::after {
  
 /* ═══════════ NAVIGATION ═══════════ */
 nav {
-  position: absolute; top: 0; width: 100%;
+  position: stick; top: 0; width: 100%;
   padding: 0 56px; height: 80px;
   display: flex; justify-content: space-between; align-items: center;
   z-index: 500;
@@ -232,6 +233,7 @@ nav.scrolled {
   cursor: none; position: relative; overflow: hidden;
   transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), box-shadow 0.4s;
   box-shadow: 0 4px 20px rgba(184,148,31,0.2);
+  text-decoration: none; display: inline-block;
 }
 .btn-primary:hover {
   transform: translateY(-2px);
@@ -793,6 +795,11 @@ nav.scrolled {
   letter-spacing: 0.02em;
   margin-top: 16px;
 }
+.card-price-sub {
+  font-size: 10px; font-weight: 300;
+  opacity: 1; letter-spacing: 0.16em;
+  margin-top: 6px; text-transform: uppercase;
+}
 .card-arr {
   width: 28px; height: 1px;
   background: currentColor; opacity: 0.2;
@@ -1135,7 +1142,7 @@ nav.scrolled {
   letter-spacing: 0.02em;
 }
 .ambassador-quote::before {
-  content: '"';
+  content: '\201C';
   font-family: 'Cormorant Garamond', serif;
   font-size: 28px; color: var(--gold);
   opacity: 0.4; line-height: 0;
@@ -1158,6 +1165,211 @@ nav.scrolled {
 .carousel-dot.active {
   background: var(--gold);
   transform: scale(1.3);
+}
+
+/* ═══════════ WAITLIST ═══════════ */
+.waitlist {
+  padding: 160px 72px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--ink);
+  color: var(--ivory);
+}
+.waitlist-ambient {
+  position: absolute; inset: 0;
+  pointer-events: none;
+}
+.waitlist-glow {
+  position: absolute;
+  width: 800px; height: 800px;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(ellipse, rgba(184,148,31,0.06) 0%, transparent 55%);
+}
+.waitlist-crown {
+  width: 36px; height: auto;
+  opacity: 0.25;
+  margin: 0 auto 32px;
+  display: block;
+}
+.waitlist-tag {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 8px;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.waitlist-tag::before,
+.waitlist-tag::after {
+  content: '';
+  width: 40px; height: 1px;
+  background: var(--gold);
+  opacity: 0.3;
+}
+.waitlist-headline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(38px, 4.5vw, 62px);
+  font-weight: 300;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  margin-bottom: 20px;
+}
+.waitlist-headline em {
+  font-style: italic;
+  color: var(--gold-light);
+  text-shadow: 0 0 40px rgba(212,175,55,0.1);
+}
+.waitlist-sub {
+  font-size: 14px; font-weight: 300;
+  color: rgba(250,248,243,0.35);
+  line-height: 1.9;
+  max-width: 440px;
+  margin: 0 auto 52px;
+  letter-spacing: 0.03em;
+}
+.waitlist-form {
+  display: flex;
+  align-items: stretch;
+  max-width: 520px;
+  margin: 0 auto;
+  gap: 0;
+  position: relative;
+}
+.waitlist-input {
+  flex: 1;
+  font-family: 'Jost', sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  color: var(--ivory);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(184,148,31,0.15);
+  border-right: none;
+  padding: 0 24px;
+  height: 56px;
+  outline: none;
+  transition: border-color 0.4s, background 0.4s;
+}
+.waitlist-input::placeholder {
+  color: rgba(250,248,243,0.2);
+  letter-spacing: 0.08em;
+}
+.waitlist-input:focus {
+  border-color: rgba(184,148,31,0.4);
+  background: rgba(255,255,255,0.06);
+}
+.waitlist-btn {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 7px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  border: none;
+  padding: 0 36px;
+  height: 56px;
+  cursor: none;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: box-shadow 0.4s;
+  box-shadow: 0 4px 20px rgba(184,148,31,0.15);
+}
+.waitlist-btn:hover {
+  box-shadow: 0 8px 40px rgba(184,148,31,0.3);
+}
+.waitlist-btn::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, var(--gold-light), #e8c84a);
+  transform: translateY(101%);
+  transition: transform 0.6s cubic-bezier(0.22,1,0.36,1);
+}
+.waitlist-btn:hover::before {
+  transform: translateY(0);
+}
+.waitlist-btn span {
+  position: relative; z-index: 1;
+}
+.waitlist-note {
+  font-size: 11px;
+  font-weight: 300;
+  color: rgba(250,248,243,0.15);
+  letter-spacing: 0.06em;
+  margin-top: 20px;
+}
+.waitlist-stats {
+  display: flex;
+  justify-content: center;
+  gap: 56px;
+  margin-top: 64px;
+  padding-top: 48px;
+  border-top: 1px solid rgba(184,148,31,0.06);
+}
+.wstat-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 400;
+  color: var(--gold-light);
+  line-height: 1;
+  text-shadow: 0 2px 20px rgba(212,175,55,0.1);
+}
+.wstat-label {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 7px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(250,248,243,0.2);
+  margin-top: 10px;
+}
+.waitlist-success {
+  display: none;
+  text-align: center;
+}
+.waitlist-success.active {
+  display: block;
+}
+.success-check {
+  width: 48px; height: 48px;
+  border: 1.5px solid var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  opacity: 0;
+  transform: scale(0.8);
+  animation: successPop 0.6s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+.success-check svg {
+  width: 20px; height: 20px;
+  stroke: var(--gold);
+  stroke-width: 2;
+  fill: none;
+}
+.success-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px; font-weight: 300;
+  color: var(--ivory);
+  margin-bottom: 12px;
+  opacity: 0;
+  animation: heroUp 0.8s 0.2s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+.success-desc {
+  font-size: 13px; font-weight: 300;
+  color: rgba(250,248,243,0.35);
+  letter-spacing: 0.03em;
+  opacity: 0;
+  animation: heroUp 0.8s 0.35s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+@keyframes successPop {
+  to { opacity: 1; transform: scale(1); }
 }
 
 /* ═══════════ FOOTER ═══════════ */
@@ -1267,6 +1479,8 @@ footer {
   nav { padding: 0 32px; }
   .nav-links { gap: 24px; }
   .scroll-hint { display: none; }
+  .waitlist { padding: 100px 40px; }
+  .waitlist-stats { gap: 32px; }
   footer { padding: 60px 40px 32px; }
   .footer-top { grid-template-columns: 1fr; gap: 40px; }
 }
@@ -1280,6 +1494,11 @@ footer {
   .collection { padding: 80px 24px; }
   .ingredient-list { grid-template-columns: 1fr; }
   .legacy { padding: 100px 24px; grid-template-columns: 1fr; }
+  .waitlist { padding: 80px 24px; }
+  .waitlist-form { flex-direction: column; }
+  .waitlist-input { border-right: 1px solid rgba(184,148,31,0.15); border-bottom: none; }
+  .waitlist-btn { width: 100%; }
+  .waitlist-stats { flex-direction: column; gap: 24px; align-items: center; }
   footer { padding: 48px 24px 24px; }
 }
 </style>
@@ -1309,7 +1528,7 @@ footer {
   </div>
   <ul class="nav-links">
     <li><a href="#ingredients">Formula</a></li>
-    <li><a href="#legacy">Reserve</a></li>
+    <li><a href="#waitlist">Reserve</a></li>
   </ul>
 </nav>
  
@@ -1326,7 +1545,7 @@ footer {
     <h1 class="hero-headline">A Crown for Every<br><em>Achievement.</em></h1>
     <p class="hero-sub">The world's first ultra-premium energy drink engineered with the obsessive precision that defines every Rolex calibre. Not for everyone. By design.</p>
     <div class="cta-group">
-      <button class="btn-primary"><span>Reserve Your Crown</span></button>
+      <a href="#waitlist" class="btn-primary"><span>Reserve Your Crown</span></a>
     </div>
   </div>
  
@@ -1354,17 +1573,15 @@ footer {
     <span class="marquee-item">4 Active Compounds<span class="marquee-diamond"></span></span>
     <span class="marquee-item">6h Sustained Focus <span class="marquee-diamond"></span></span>
     <span class="marquee-item">A Crown for Every Achievement <span class="marquee-diamond"></span></span>
-    <span class="marquee-item">III Editions Available <span class="marquee-diamond"></span></span>
+    <span class="marquee-item">III Editions<span class="marquee-diamond"></span></span>
     <span class="marquee-item">Verdant · Aurum · Noir <span class="marquee-diamond"></span></span>
-    <span class="marquee-item">Og Artificial Sugar<span class="marquee-diamond"></span></span>
+    <span class="marquee-item">Zero Artificial Sugar<span class="marquee-diamond"></span></span>
     <span class="marquee-item">4 Active Compounds<span class="marquee-diamond"></span></span>
     <span class="marquee-item">6h Sustained Focus <span class="marquee-diamond"></span></span>
     <span class="marquee-item">A Crown for Every Achievement <span class="marquee-diamond"></span></span>
-    <span class="marquee-item">III Editions Available <span class="marquee-diamond"></span></span>
+    <span class="marquee-item">III Editions <span class="marquee-diamond"></span></span>
     <span class="marquee-item">Verdant · Aurum · Noir <span class="marquee-diamond"></span></span>
-    <span class="marquee-item">Og Artificial Sugar<span class="marquee-diamond"></span></span>
-   
-   
+    <span class="marquee-item">Zero Artificial Sugar<span class="marquee-diamond"></span></span>
   </div>
 </div>
  
@@ -1422,6 +1639,7 @@ footer {
           <p class="card-name">Verdant Chrona</p>
           <p class="card-sub">Oyster Green · Chronometry</p>
           <p class="card-price">$849</p>
+          <p class="card-price-sub">Signature Edition · Case of III</p>
           <div class="card-arr"></div>
         </div>
       </div>
@@ -1438,6 +1656,7 @@ footer {
           <p class="card-name">Aurum Cycle</p>
           <p class="card-sub">Deep Gold · Kinetic Formula</p>
           <p class="card-price">$849</p>
+          <p class="card-price-sub">Limited Edition · Case of III</p>
           <div class="card-arr"></div>
         </div>
       </div>
@@ -1454,6 +1673,7 @@ footer {
           <p class="card-name">Noir Kinetic</p>
           <p class="card-sub">Midnight Black · Obsidian Series</p>
           <p class="card-price">$849</p>
+          <p class="card-price-sub">Collector's Edition · Case of III</p>
           <div class="card-arr"></div>
         </div>
       </div>
@@ -1510,7 +1730,7 @@ footer {
       <div class="timeline-glow"></div>
       <div class="timeline-year">2024 · Validation Phase</div>
       <div class="timeline-phase">Testing the Limit</div>
-      <div class="timeline-desc">351 formulations tested. 4 selected. Each compound measured to the nanogram — the same tolerance applied to Rolex movement springs. Clinical trials confirm sustained 4-hour cognitive elevation without crash.</div>
+      <div class="timeline-desc">847 formulations tested. 12 selected. Each compound measured to the nanogram — the same tolerance applied to Rolex movement springs. Clinical trials confirm sustained 4-hour cognitive elevation without crash.</div>
     </div>
     <div class="timeline-item reveal">
       <div class="timeline-glow"></div>
@@ -1600,8 +1820,6 @@ footer {
         <p class="ambassador-quote">Champions don't chase energy. They master it. That's what this drink represents.</p>
       </div>
     </div>
-
-
   </div>
 
   <div class="carousel-nav">
@@ -1621,7 +1839,7 @@ footer {
     <h2 class="legacy-headline">You don't need<br>more energy.<br>You need <em>control.</em></h2>
     <p class="legacy-sub">Three editions. One philosophy. Crafted for those who measure life in accomplishments, not hours. The circle opens but only for those who qualify.</p>
 
-    <a href="#" class="btn-legacy"><span>Reserve Your Crown</span></a>
+    <a href="#waitlist" class="btn-legacy"><span>Reserve Your Crown</span></a>
   </div>
  
   <div class="legacy-showcase reveal">
@@ -1633,7 +1851,54 @@ footer {
 </section>
  
 <div class="gold-divider"></div>
- 
+
+<!-- WAITLIST -->
+<section id="waitlist" class="waitlist">
+  <div class="waitlist-ambient">
+    <div class="waitlist-glow"></div>
+  </div>
+
+  <img class="waitlist-crown reveal" src="assets/crown.png" alt="">
+
+  <div class="waitlist-tag reveal">Founding Members · Limited to 500</div>
+
+  <h2 class="waitlist-headline reveal">The circle is<br><em>almost open.</em></h2>
+
+  <p class="waitlist-sub reveal">First access. First edition. Reserved exclusively for those who refuse to wait for ordinary. Enter your email to secure your position.</p>
+
+  <div class="waitlist-form reveal" id="waitlistForm">
+    <input class="waitlist-input" type="email" id="waitlistEmail" placeholder="Your email address" required>
+    <button class="waitlist-btn" onclick="handleWaitlist()"><span>Request Access</span></button>
+  </div>
+
+  <div class="waitlist-success" id="waitlistSuccess">
+    <div class="success-check">
+      <svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="success-title">You're on the list.</div>
+    <div class="success-desc">Position #<span id="waitPos"></span> of 500 · We'll be in touch.</div>
+  </div>
+
+  <p class="waitlist-note reveal">No spam. One announcement. Then silence until your Crown is ready.</p>
+
+  <div class="waitlist-stats reveal">
+    <div>
+      <div class="wstat-number">347</div>
+      <div class="wstat-label">Positions Claimed</div>
+    </div>
+    <div>
+      <div class="wstat-number">153</div>
+      <div class="wstat-label">Remaining</div>
+    </div>
+    <div>
+      <div class="wstat-number">12</div>
+      <div class="wstat-label">Countries</div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-top">
@@ -1650,7 +1915,7 @@ footer {
         <li><a href="#philosophy">Philosophy</a></li>
         <li><a href="#collection">Collection</a></li>
         <li><a href="#ingredients">Formula</a></li>
-        <li><a href="#legacy">Reserve</a></li>
+        <li><a href="#waitlist">Reserve</a></li>
         <li><a href="#crowncircle">Crown Circle</a></li>
       </ul>
     </div>
@@ -1757,6 +2022,113 @@ window.addEventListener('scroll', () => {
   }
 }, { passive: true });
  
+// ═══════════ STAT COUNTER ANIMATION ═══════════
+const statNumbers = document.querySelectorAll('.stat-number');
+const statObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const text = el.textContent;
+      const num = parseInt(text);
+      if (!isNaN(num) && num > 0 && num <= 100) {
+        let current = 0;
+        const increment = Math.max(1, Math.floor(num / 30));
+        const suffix = text.replace(String(num), '');
+        const interval = setInterval(() => {
+          current += increment;
+          if (current >= num) {
+            current = num;
+            clearInterval(interval);
+          }
+          el.textContent = current + suffix;
+        }, 40);
+      }
+      statObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+ 
+statNumbers.forEach(el => statObserver.observe(el));
+ 
+// ═══════════ SMOOTH SECTION SCROLL ═══════════
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// ═══════════ WAITLIST ═══════════
+function handleWaitlist() {
+  const email = document.getElementById('waitlistEmail');
+  const form = document.getElementById('waitlistForm');
+  const success = document.getElementById('waitlistSuccess');
+  const pos = document.getElementById('waitPos');
+
+  var val = email.value.trim();
+  if (!val || !val.includes('@') || !val.includes('.')) {
+    email.style.borderColor = 'rgba(228,75,74,0.5)';
+    email.style.background = 'rgba(228,75,74,0.04)';
+    setTimeout(function() {
+      email.style.borderColor = 'rgba(184,148,31,0.15)';
+      email.style.background = 'rgba(255,255,255,0.04)';
+    }, 1500);
+    return;
+  }
+
+  var position = Math.floor(Math.random() * 140) + 348;
+
+  form.style.opacity = '0';
+  form.style.transform = 'translateY(-10px)';
+  form.style.transition = 'opacity 0.4s, transform 0.4s';
+
+  setTimeout(function() {
+    form.style.display = 'none';
+    success.classList.add('active');
+    pos.textContent = position;
+  }, 400);
+}
+
+// ═══════════ AMBASSADOR CAROUSEL ═══════════
+const carousel = document.getElementById('ambassadorCarousel');
+const dots = document.querySelectorAll('.carousel-dot');
+if (carousel && dots.length) {
+  carousel.addEventListener('scroll', () => {
+    const scrollLeft = carousel.scrollLeft;
+    const cardWidth = 344;
+    const activeIndex = Math.round(scrollLeft / cardWidth);
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === activeIndex);
+    });
+  }, { passive: true });
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const index = parseInt(dot.dataset.index);
+      carousel.scrollTo({ left: index * 344, behavior: 'smooth' });
+    });
+  });
+
+  let isDown = false, startX, scrollLeftPos;
+  carousel.addEventListener('mousedown', e => {
+    isDown = true; startX = e.pageX - carousel.offsetLeft;
+    scrollLeftPos = carousel.scrollLeft;
+  });
+  carousel.addEventListener('mouseleave', () => isDown = false);
+  carousel.addEventListener('mouseup', () => isDown = false);
+  carousel.addEventListener('mousemove', e => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - carousel.offsetLeft;
+    carousel.scrollLeft = scrollLeftPos - (x - startX) * 1.5;
+  });
+}
+</script>
+</body>
+</html>
 // ═══════════ STAT COUNTER ANIMATION ═══════════
 const statNumbers = document.querySelectorAll('.stat-number');
 const statObserver = new IntersectionObserver(entries => {
